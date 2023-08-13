@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://da5sqmgi57nug"]
+
+[ext_resource type="Script" path="res://Levels/9. Tools/Campaign Editor.gd" id="1_0i7e4"]
+[ext_resource type="Texture2D" uid="uid://cnxyfg0vv7cpi" path="res://Levels/1. Grand Campaign/Map/Map_Regions.png" id="2_2u2yy"]
+[ext_resource type="Script" path="res://Player/player_camera.gd" id="3_7q4y3"]
+
+[node name="Campaign Editor" type="Node2D"]
+script = ExtResource("1_0i7e4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2u2yy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_7q4y3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuBar" type="MenuBar" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PM_continents" type="PopupMenu" parent="CanvasLayer/MenuBar"]
+item_count = 3
+item_0/text = "1"
+item_0/id = 0
+item_1/text = "2"
+item_1/id = 1
+item_2/text = "3"
+item_2/id = 2

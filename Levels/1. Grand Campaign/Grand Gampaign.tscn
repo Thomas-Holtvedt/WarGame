@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://m16tnloqmqnp"]
+
+[ext_resource type="Script" path="res://Levels/1. Grand Campaign/Grand Gampaign.gd" id="1_0lek4"]
+
+[node name="Grand Gampaign" type="Node2D"]
+script = ExtResource("1_0lek4")

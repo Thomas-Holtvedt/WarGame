@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://guoohqlkvwre"]
+
+[ext_resource type="Script" path="res://Levels/0. Main Menu/Main Menu.gd" id="1_dqx78"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dqx78")
+
+[node name="VB_MainMenu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 472.0
+offset_right = 238.0
+offset_bottom = 643.0
+
+[node name="Button_Play" type="Button" parent="VB_MainMenu"]
+layout_mode = 2
+text = "Play"
+
+[node name="Button_CaEditor" type="Button" parent="VB_MainMenu"]
+layout_mode = 2
+text = "Campaign Editor"
+
+[node name="Button_Quit" type="Button" parent="VB_MainMenu"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="button_up" from="VB_MainMenu/Button_Play" to="." method="_on_button_play_button_up"]
+[connection signal="button_up" from="VB_MainMenu/Button_CaEditor" to="." method="_on_button_ca_editor_button_up"]
+[connection signal="button_up" from="VB_MainMenu/Button_Quit" to="." method="_on_button_quit_button_up"]
