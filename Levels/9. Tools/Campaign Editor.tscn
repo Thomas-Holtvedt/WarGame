@@ -15,15 +15,38 @@ script = ExtResource("3_7q4y3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MenuBar" type="MenuBar" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 225.0
+offset_bottom = 35.0
+drag_to_rearrange_enabled = true
 
-[node name="PM_continents" type="PopupMenu" parent="CanvasLayer/MenuBar"]
-item_count = 3
-item_0/text = "1"
-item_0/id = 0
-item_1/text = "2"
-item_1/id = 1
-item_2/text = "3"
-item_2/id = 2
+[node name="P" type="Panel" parent="CanvasLayer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Continents" type="Panel" parent="CanvasLayer/TabContainer"]
+layout_mode = 2
+
+[node name="VB" type="VBoxContainer" parent="CanvasLayer/TabContainer/Continents"]
+offset_right = 143.0
+offset_bottom = 100.0
+
+[node name="Button_add_continent" type="Button" parent="CanvasLayer/TabContainer/Continents/VB"]
+layout_mode = 2
+text = "Add New"
+
+[node name="VB_continents" type="VBoxContainer" parent="CanvasLayer/TabContainer/Continents/VB"]
+layout_mode = 2
+
+[node name="Button_save_continent" type="Button" parent="CanvasLayer/TabContainer/Continents/VB"]
+layout_mode = 2
+text = "Save"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="button_up" from="CanvasLayer/TabContainer/Continents/VB/Button_add_continent" to="." method="_on_button_add_continent_button_up"]
+[connection signal="button_up" from="CanvasLayer/TabContainer/Continents/VB/Button_save_continent" to="." method="_on_button_save_continent_button_up"]

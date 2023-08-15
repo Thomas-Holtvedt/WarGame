@@ -33,5 +33,19 @@ func load_continents():
 		line_continent.text = lines
 		print(lines)
 		if lines != "NA":
-			get_node("CanvasLayer/MenuBar/PM_continents").add_child(line_continent)
+			get_node("CanvasLayer/TabContainer/Continents/VB/VB_continents").add_child(line_continent)
 		#get_node("CanvasLayer/Panel_region/VB/GC/Continent").add_item(lines)
+
+
+func _on_button_add_continent_button_up():
+	var line_continent = LineEdit.new()
+	get_node("CanvasLayer/TabContainer/Continents/VB/VB_continents").add_child(line_continent)
+
+
+func _on_button_save_continent_button_up():
+	#get_node("CanvasLayer/Panel_region/VB/GC/Continent").clear()
+	#get_node("CanvasLayer/Panel_region/VB/GC/Continent").add_item("NA")
+	self.list_continents = ["NA"]
+	for line_continent in get_node("CanvasLayer/TabContainer/Continents/VB/VB_continents").get_children():
+		#get_node("CanvasLayer/Panel_region/VB/GC/Continent").add_item(line_continent.text)
+		self.list_continents.append(line_continent.text)
