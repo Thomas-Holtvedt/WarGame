@@ -15,38 +15,54 @@ script = ExtResource("3_7q4y3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = 4.0
-offset_right = 225.0
-offset_bottom = 35.0
-drag_to_rearrange_enabled = true
+[node name="Panel_region" type="Panel" parent="CanvasLayer"]
+offset_left = 716.0
+offset_top = -4.0
+offset_right = 1153.0
+offset_bottom = 357.0
 
-[node name="P" type="Panel" parent="CanvasLayer/TabContainer"]
-visible = false
+[node name="VB" type="VBoxContainer" parent="CanvasLayer/Panel_region"]
+layout_mode = 0
+offset_right = 436.0
+offset_bottom = 272.0
+
+[node name="GC" type="GridContainer" parent="CanvasLayer/Panel_region/VB"]
 layout_mode = 2
 
-[node name="Continents" type="Panel" parent="CanvasLayer/TabContainer"]
+[node name="HB" type="HBoxContainer" parent="CanvasLayer/Panel_region/VB"]
 layout_mode = 2
 
-[node name="VB" type="VBoxContainer" parent="CanvasLayer/TabContainer/Continents"]
-offset_right = 143.0
-offset_bottom = 100.0
-
-[node name="Button_add_continent" type="Button" parent="CanvasLayer/TabContainer/Continents/VB"]
-layout_mode = 2
-text = "Add New"
-
-[node name="VB_continents" type="VBoxContainer" parent="CanvasLayer/TabContainer/Continents/VB"]
-layout_mode = 2
-
-[node name="Button_save_continent" type="Button" parent="CanvasLayer/TabContainer/Continents/VB"]
+[node name="Button_region_save" type="Button" parent="CanvasLayer/Panel_region/VB/HB"]
 layout_mode = 2
 text = "Save"
 
-[node name="Panel" type="Panel" parent="CanvasLayer/TabContainer"]
-visible = false
+[node name="Button_region_close" type="Button" parent="CanvasLayer/Panel_region/VB/HB"]
+layout_mode = 2
+text = "Close"
+
+[node name="Panel_continents" type="Panel" parent="CanvasLayer"]
+offset_right = 186.0
+offset_bottom = 648.0
+
+[node name="VB" type="VBoxContainer" parent="CanvasLayer/Panel_continents"]
+layout_mode = 0
+offset_right = 143.0
+offset_bottom = 100.0
+
+[node name="Label_continents" type="Label" parent="CanvasLayer/Panel_continents/VB"]
+layout_mode = 2
+text = "Continents"
+
+[node name="Button_add_continent" type="Button" parent="CanvasLayer/Panel_continents/VB"]
+layout_mode = 2
+text = "Add New"
+
+[node name="VB_continents" type="VBoxContainer" parent="CanvasLayer/Panel_continents/VB"]
 layout_mode = 2
 
-[connection signal="button_up" from="CanvasLayer/TabContainer/Continents/VB/Button_add_continent" to="." method="_on_button_add_continent_button_up"]
-[connection signal="button_up" from="CanvasLayer/TabContainer/Continents/VB/Button_save_continent" to="." method="_on_button_save_continent_button_up"]
+[node name="Button_save_continent" type="Button" parent="CanvasLayer/Panel_continents/VB"]
+layout_mode = 2
+text = "Save"
+
+[connection signal="button_up" from="CanvasLayer/Panel_continents/VB/Button_add_continent" to="." method="_on_button_add_continent_button_up"]
+[connection signal="button_up" from="CanvasLayer/Panel_continents/VB/Button_save_continent" to="." method="_on_button_save_continent_button_up"]
