@@ -1,0 +1,5 @@
+[
+	"NA",
+	"Player_1",
+	"Player_2"
+]

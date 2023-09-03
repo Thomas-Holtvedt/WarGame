@@ -1,23 +1,16 @@
 extends Camera2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 func zoom_in():
 	var current_zoom = self.zoom
-	self.set_zoom(current_zoom * 1.05)
+	if get_node("../CanvasLayer/Panel_validation").visible == false:
+		self.set_zoom(current_zoom * 1.05)
 	
 func zoom_out():
 	var current_zoom = self.zoom
-	self.set_zoom(current_zoom * 0.95)
+	if get_node("../CanvasLayer/Panel_validation").visible == false:
+		self.set_zoom(current_zoom * 0.95)
 	
+#Drag around camera
 func move_offset(event):
 	var rel_x = event.relative.x
 	var rel_y = event.relative.y
