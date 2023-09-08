@@ -72,7 +72,10 @@ func load_continents():
 		if lines != "NA":
 			get_node("CanvasLayer/Panel_continents/VB/VB_continents").add_child(HB_continent)
 			get_node("CanvasLayer/Panel_continents/VB/VB_continents/"+name1).add_child(line_continent)
+			var number = get_node("CanvasLayer/Panel_continents/VB/VB_continents").get_child_count()
+			delete_button.connect("pressed", _on_button_delete_continent_pressed.bind(number))
 			get_node("CanvasLayer/Panel_continents/VB/VB_continents/"+name1).add_child(delete_button)
+			
 		get_node("CanvasLayer/Panel_region/VB/GC/OB_Continent").add_item(lines)
 
 #Add new continent
@@ -85,7 +88,8 @@ func _on_button_add_continent_button_up():
 	get_node("CanvasLayer/Panel_continents/VB/VB_continents/"+name1).add_child(line_continent)
 	var delete_button = Button.new()
 	delete_button.text = "Delete"
-	delete_button.connect("pressed", _on_button_pressed)
+	var number = get_node("CanvasLayer/Panel_continents/VB/VB_continents").get_child_count()
+	delete_button.connect("pressed", _on_button_delete_continent_pressed.bind(number))
 	get_node("CanvasLayer/Panel_continents/VB/VB_continents/"+name1).add_child(delete_button)
 	
 	
@@ -99,8 +103,10 @@ func _on_button_save_continent_button_up():
 		self.list_continents.append(line_continent.get_children()[0].text)
 	export_file("res://Levels/1. Grand Campaign/Map/continents.txt", list_continents)
 
-func _on_button_pressed():
-	print("ok")
+func _on_button_delete_continent_pressed(number : int):
+	get_node("CanvasLayer/Panel_continents/VB/VB_continents").get_children()[number-1].queue_free()
+	print(number)
+
 
 
 #Close continent panel
