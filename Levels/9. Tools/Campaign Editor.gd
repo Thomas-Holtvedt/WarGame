@@ -15,17 +15,6 @@ func _ready():
 
 
 
-# check the file if empty, put contents region options
-func load_players():
-	if list_players == null:
-		self.list_players = ["NA"]
-	for lines in self.list_players:
-		var line_player = LineEdit.new()
-		line_player.text = lines
-		if lines != "NA":
-			get_node("CanvasLayer/Panel_players/VB/VB_players").add_child(line_player)
-		get_node("CanvasLayer/Panel_region/VB/GC/OB_Owner").add_item(lines)
-
 ## INPUT FUNCTIONS
 # When clicking on region, find color code and cllect information from the region dictionary and related list
 func _unhandled_input(event):
@@ -67,6 +56,7 @@ func load_continents():
 		HB_continent.name = name1
 		var line_continent = LineEdit.new()
 		line_continent.text = lines
+		line_continent.custom_minimum_size = Vector2(280.0,31.0)
 		var delete_button = Button.new()
 		delete_button.text = "Delete"
 		if lines != "NA":
@@ -85,13 +75,13 @@ func _on_button_add_continent_button_up():
 	HB_continent.name = name1
 	get_node("CanvasLayer/Panel_continents/VB/VB_continents").add_child(HB_continent)
 	var line_continent = LineEdit.new()
+	line_continent.custom_minimum_size = Vector2(280.0,31.0)
 	get_node("CanvasLayer/Panel_continents/VB/VB_continents/"+name1).add_child(line_continent)
 	var delete_button = Button.new()
 	delete_button.text = "Delete"
 	var number = get_node("CanvasLayer/Panel_continents/VB/VB_continents").get_child_count()
 	delete_button.connect("pressed", _on_button_delete_continent_pressed.bind(number))
 	get_node("CanvasLayer/Panel_continents/VB/VB_continents/"+name1).add_child(delete_button)
-	
 	
 #Save the continent list and update the continent options on panel region
 func _on_button_save_continent_button_up():
@@ -107,16 +97,45 @@ func _on_button_delete_continent_pressed(number : int):
 	get_node("CanvasLayer/Panel_continents/VB/VB_continents").get_children()[number-1].queue_free()
 	print(number)
 
-
-
 #Close continent panel
 func _on_button_close_continent_button_up():
 	get_node("CanvasLayer/Panel_continents").visible = false
 
 ## PANEL PLAYER FUNCTIONS
+# check the file if empty, put contents region options
+func load_players():
+	if list_players == null:
+		self.list_players = ["NA"]
+	for lines in self.list_players:
+		var HB_player = HBoxContainer.new()
+		var name1 = "HB_player"+str(get_node("CanvasLayer/Panel_players/VB/VB_players").get_child_count())
+		HB_player.name = name1
+		var line_player = LineEdit.new()
+		line_player.text = lines
+		line_player.custom_minimum_size = Vector2(280.0,31.0)
+		var delete_button = Button.new()
+		delete_button.text = "Delete"
+		if lines != "NA":
+			get_node("CanvasLayer/Panel_players/VB/VB_players").add_child(HB_player)
+			get_node("CanvasLayer/Panel_players/VB/VB_players/"+name1).add_child(line_player)
+			var number = get_node("CanvasLayer/Panel_players/VB/VB_players").get_child_count()
+			delete_button.connect("pressed", _on_button_delete_player_pressed.bind(number))
+			get_node("CanvasLayer/Panel_players/VB/VB_players/"+name1).add_child(delete_button)
+		get_node("CanvasLayer/Panel_region/VB/GC/OB_Owner").add_item(lines)
+
 func _on_button_add_player_button_up():
+	var HB_player = HBoxContainer.new()
+	var name1 = "HB_player"+str(get_node("CanvasLayer/Panel_players/VB/VB_players").get_child_count())
+	HB_player.name = name1
+	get_node("CanvasLayer/Panel_players/VB/VB_players").add_child(HB_player)
 	var line_player = LineEdit.new()
-	get_node("CanvasLayer/Panel_players/VB/VB_players").add_child(line_player)
+	line_player.custom_minimum_size = Vector2(280.0,31.0)
+	get_node("CanvasLayer/Panel_players/VB/VB_players/"+name1).add_child(line_player)
+	var delete_button = Button.new()
+	delete_button.text = "Delete"
+	var number = get_node("CanvasLayer/Panel_players/VB/VB_players").get_child_count()
+	delete_button.connect("pressed", _on_button_delete_player_pressed.bind(number))
+	get_node("CanvasLayer/Panel_players/VB/VB_players/"+name1).add_child(delete_button)
 
 #Save the player list and update the player options on panel region
 func _on_button_save_player_button_up():
@@ -124,12 +143,16 @@ func _on_button_save_player_button_up():
 	get_node("CanvasLayer/Panel_region/VB/GC/OB_Owner").add_item("NA")
 	self.list_players = ["NA"]
 	for line_players in get_node("CanvasLayer/Panel_players/VB/VB_players").get_children():
-		get_node("CanvasLayer/Panel_region/VB/GC/OB_Owner").add_item(line_players.text)
-		self.list_players.append(line_players.text)
+		get_node("CanvasLayer/Panel_region/VB/GC/OB_Owner").add_item(line_players.get_children()[0].text)
+		self.list_players.append(line_players.get_children()[0].text)
 	export_file("res://Levels/1. Grand Campaign/Map/players.txt", list_players)
 
 func _on_button_close_players_button_up():
 	get_node("CanvasLayer/Panel_players").visible = false
+	
+func _on_button_delete_player_pressed(number : int):
+	get_node("CanvasLayer/Panel_players/VB/VB_players").get_children()[number-1].queue_free()
+	print(number)
 
 ## PANEL REGION FUNCTIONS
 func _on_le_name_text_changed(new_text):

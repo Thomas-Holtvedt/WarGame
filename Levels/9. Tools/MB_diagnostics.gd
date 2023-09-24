@@ -16,24 +16,24 @@ func _on_item_menu_pressed(id: int):
 	if id == 1:
 		var total_regions = 0
 		var total_warnings = 0
-		
 		get_node("../../Panel_validation").visible = true
 		var dict_regions = get_node("../../..").dict_regions
 		for color in dict_regions:
 			total_regions = total_regions + 1
 			var region = Label.new()
 			region.text = ("Region " + str(color))
-			get_node("../../Panel_validation/Panel_val_details/SC/VB").add_child(region)
 			
 			if dict_regions[color][0] == "NA":
 				total_warnings = total_warnings + 1
 				var warningname = Label.new()
 				warningname.text = " Missing Name value"
+				get_node("../../Panel_validation/Panel_val_details/SC/VB").add_child(region)
 				get_node("../../Panel_validation/Panel_val_details/SC/VB").add_child(warningname)
 			if dict_regions[color][1] == 0:
 				total_warnings = total_warnings + 1
 				var warningcontinent = Label.new()
 				warningcontinent.text = " Missing Continent value"
+				get_node("../../Panel_validation/Panel_val_details/SC/VB").add_child(region)
 				get_node("../../Panel_validation/Panel_val_details/SC/VB").add_child(warningcontinent)
 		
 		get_node("../../Panel_validation/Panel_val_summary/VB/HB/Label_sum_regions_input").set_text(str(total_regions))

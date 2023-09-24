@@ -2,5 +2,8 @@
 	"NA",
 	"Europa",
 	"North_America",
-	"South_America"
+	"South_America",
+	"Africa",
+	"Asia",
+	"Australia"
 ]
