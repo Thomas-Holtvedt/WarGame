@@ -18,3 +18,42 @@ centered = false
 script = ExtResource("4_1nrma")
 
 [node name="Regions" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Area2D_bounds_left" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Area2D_bounds_left"]
+position = Vector2(2, -2)
+scale = Vector2(0.38087, 0.299401)
+polygon = PackedVector2Array(5, 9, 551.369, 30.06, 525.113, 2150.96, 2, 2155)
+
+[node name="Area2D_bounds_right" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Area2D_bounds_right"]
+position = Vector2(907, 4)
+scale = Vector2(0.38087, 0.299401)
+polygon = PackedVector2Array(212.671, 43.4201, 617.008, -6.68001, 624.885, 2124.24, 199.543, 2127.58)
+
+[node name="Area2D_bounds_up" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Area2D_bounds_up"]
+position = Vector2(2, 1)
+scale = Vector2(0.38087, 0.299401)
+polygon = PackedVector2Array(5, 9, 2985.27, 23.38, 2985.27, 380.761, 15.7534, 364.061)
+
+[node name="Area2D_bounds_down" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Area2D_bounds_down"]
+position = Vector2(2, -2)
+scale = Vector2(0.38087, 0.299401)
+polygon = PackedVector2Array(3008.9, 2187.7, 2974.77, 1676.68, 7.8767, 1736.8, 2, 2155)
+
+[connection signal="mouse_entered" from="CanvasLayer/Area2D_bounds_left" to="Camera2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Area2D_bounds_left" to="Camera2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Area2D_bounds_right" to="Camera2D" method="_on_area_2d_bounds_right_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Area2D_bounds_right" to="Camera2D" method="_on_area_2d_bounds_right_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Area2D_bounds_up" to="Camera2D" method="_on_area_2d_bounds_up_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Area2D_bounds_up" to="Camera2D" method="_on_area_2d_bounds_up_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Area2D_bounds_down" to="Camera2D" method="_on_area_2d_bounds_down_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Area2D_bounds_down" to="Camera2D" method="_on_area_2d_bounds_down_mouse_exited"]

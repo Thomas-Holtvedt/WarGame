@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready():
-	get_node("Map_Regions").load_regions()
+	pass
+	#get_node("Map_Regions").load_regions()
 
 ##-------Input Functions-----##
 func _input(_event):

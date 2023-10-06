@@ -23,7 +23,6 @@ func load_regions():
 		get_node("../Regions").add_child(region)
 		
 		var targetimage = region.get_node("Sprite_region").get_texture().get_image()
-		#for value in pixel_color_dict.get(region_color):
 		for value in pixel_color_dict[region_color]:
 			targetimage.set_pixel(value.x, value.y, "#ffffff")
 			
@@ -47,8 +46,11 @@ func load_regions():
 				if vector.x < left_vector.x:
 					left_vector = vector
 			var region_collision = CollisionPolygon2D.new()	
+			var region_polygon = Polygon2D.new()	
 			region_collision.polygon = polygon
+			region_polygon.polygon = polygon
 			region.add_child(region_collision)
+			region.add_child(region_polygon)
 
 		var tl_vector = Vector2(left_vector.x, top_vector.y)
 		var tr_vector = Vector2(right_vector.x, top_vector.y)
@@ -57,11 +59,9 @@ func load_regions():
 
 		region.region_center = (tl_vector + tr_vector + bl_vector + br_vector)/4
 		
-		var newtexture = ImageTexture.new()
-		newtexture = ImageTexture.create_from_image(targetimage)
-		region.get_node("Sprite_region").texture = newtexture
-		region.get_node("Sprite_region").modulate = Color( 0.5, 0.5, 0.5, 0)
+		region.get_node("Sprite_region").queue_free()
 		
+	queue_free()
 		
 ## SYSTEM FUNCTIONS
 #Import JSON files and converts to lists or dictionary
