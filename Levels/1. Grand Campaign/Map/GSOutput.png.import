@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://86spitl6w2i"
-path="res://.godot/imported/Region.png-57ca8ca649095d4440da91b8d310a818.ctex"
+uid="uid://bv4ma7yggnens"
+path="res://.godot/imported/GSOutput.png-c49fda65dea2c141ccf113d025a219e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/1. Grand Campaign/Map/Region.png"
-dest_files=["res://.godot/imported/Region.png-57ca8ca649095d4440da91b8d310a818.ctex"]
+source_file="res://Levels/1. Grand Campaign/Map/GSOutput.png"
+dest_files=["res://.godot/imported/GSOutput.png-c49fda65dea2c141ccf113d025a219e1.ctex"]
 
 [params]
 

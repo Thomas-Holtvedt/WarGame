@@ -1,8 +1,8 @@
 extends Node2D
 
 func _ready():
-	pass
-	#get_node("Map_Regions").load_regions()
+	get_node("Map_Regions").load_regions()
+	get_node("Map_Terrain").load_terrain()
 
 ##-------Input Functions-----##
 func _input(_event):

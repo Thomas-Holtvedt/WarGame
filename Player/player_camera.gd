@@ -45,22 +45,22 @@ func _process(delta):
 		position.y += (speed / current_zoom.x) * delta
 	
 
-func _on_area_2d_mouse_entered():
-	self.mouse_left = true
-func _on_area_2d_mouse_exited():
-	self.mouse_left = false
-
-func _on_area_2d_bounds_right_mouse_entered():
-	self.mouse_right = true
-func _on_area_2d_bounds_right_mouse_exited():
-	self.mouse_right = false
-
-func _on_area_2d_bounds_up_mouse_entered():
-	self.mouse_up = true
-func _on_area_2d_bounds_up_mouse_exited():
-	self.mouse_up = false
-
-func _on_area_2d_bounds_down_mouse_entered():
-	self.mouse_down = true
-func _on_area_2d_bounds_down_mouse_exited():
-	self.mouse_down = false
+#func _on_area_2d_mouse_entered():
+#	self.mouse_left = true
+#func _on_area_2d_mouse_exited():
+#	self.mouse_left = false
+#
+#func _on_area_2d_bounds_right_mouse_entered():
+#	self.mouse_right = true
+#func _on_area_2d_bounds_right_mouse_exited():
+#	self.mouse_right = false
+#
+#func _on_area_2d_bounds_up_mouse_entered():
+#	self.mouse_up = true
+#func _on_area_2d_bounds_up_mouse_exited():
+#	self.mouse_up = false
+#
+#func _on_area_2d_bounds_down_mouse_entered():
+#	self.mouse_down = true
+#func _on_area_2d_bounds_down_mouse_exited():
+#	self.mouse_down = false
