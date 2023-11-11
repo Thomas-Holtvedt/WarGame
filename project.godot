@@ -15,9 +15,17 @@ run/main_scene="res://Levels/0. Main Menu/Main Menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+
 [dotnet]
 
 project/assembly_name="War Game"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg")
 
 [rendering]
 

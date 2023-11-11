@@ -1,15 +1,10 @@
 extends Sprite2D
 @onready var TileMap_terrain = $"../TileMap"
-#Ground layer:
-##004486 sea
-##0044ff river
-##008000 Grass
-##b99256 Shore
-
+@onready var betterterrain = $"../TileMap/BetterTerrain"
 
 func _ready():
 	self.texture = load("res://Levels/1. Grand Campaign/Map/Map_Terrain - Small.png")
-
+	
 func load_terrain():
 	var image = self.get_texture().get_image()
 	var pixel_color_dict = {}
@@ -20,7 +15,16 @@ func load_terrain():
 				pixel_color_dict[pixel_color] = []
 			pixel_color_dict[pixel_color].append(Vector2(x,y))
 
-	TileMap_terrain.set_cells_terrain_connect(0,pixel_color_dict["#008000"],0,0,false) #Grass
-	TileMap_terrain.set_cells_terrain_connect(0,pixel_color_dict["#004486"],0,1,false) #Sea
+	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#008000"],1) #Grass
+	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#947f2d"],2) #Desert
+	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#004486"],3) #Sea
+	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#6e7f2d"],4) #Steppe
+	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#034103"],5) #Dark Grass
+	
+	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#008000"],1) #Grass
+	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#947f2d"],2) #Desert
+	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#004486"],3) #Sea
+	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#6e7f2d"],4) #Steppe
+	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#034103"],5) #Dark Grass
 
 	queue_free()
