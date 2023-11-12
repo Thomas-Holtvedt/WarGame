@@ -2,11 +2,13 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	#get_node("Map_Terrain").load_terrain()
+	#Tilemap.tilemap_reference = $TileMap
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	get_node("Camera2D").offset.x += 1
 
 
 func _on_button_play_button_up():

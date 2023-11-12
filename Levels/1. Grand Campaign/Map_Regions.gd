@@ -31,8 +31,9 @@ func load_regions():
 			region_border2.bake_interval = 0.1
 			region_collision.polygon = polygon
 			region_polygon.polygon = polygon
+			region_polygon.visible = false
 			region_border.points = polygon
-			region_border.default_color = Color(0, 0, 0, 0.5)
+			#region_border.default_color = Color(0, 0, 0, 0.5)
 			region_border.width = 5
 
 			for vector in polygon: 
@@ -43,8 +44,7 @@ func load_regions():
 			region.add_child(region_polygon)
 			region.add_child(region_border)
 			
-	queue_free()
-		
+	queue_free()	
 ##
 func get_pixel_color_dict(image):
 	var pixel_color_dict = {}

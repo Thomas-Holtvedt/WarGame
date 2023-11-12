@@ -20,11 +20,15 @@ func load_terrain():
 	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#004486"],3) #Sea
 	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#6e7f2d"],4) #Steppe
 	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#034103"],5) #Dark Grass
+	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#d5d9dc"],6) #snow
+	betterterrain.set_cells(TileMap_terrain,0,pixel_color_dict["#539353"],7) #Tundra
 	
 	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#008000"],1) #Grass
 	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#947f2d"],2) #Desert
 	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#004486"],3) #Sea
 	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#6e7f2d"],4) #Steppe
 	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#034103"],5) #Dark Grass
+	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#d5d9dc"],6) #snow
+	betterterrain.update_terrain_cells(TileMap_terrain,0,pixel_color_dict["#539353"],7) #Tundra
 
 	queue_free()
