@@ -28,6 +28,7 @@ func load_regions():
 			var region_polygon = Polygon2D.new()	
 			var region_border = Line2D.new()
 			var region_border2 = Curve2D.new()
+			polygon.append(polygon[0])
 			region_border2.bake_interval = 0.1
 			region_collision.polygon = polygon
 			region_polygon.polygon = polygon

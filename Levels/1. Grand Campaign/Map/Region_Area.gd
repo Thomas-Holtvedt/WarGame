@@ -16,14 +16,15 @@ func _on_child_entered_tree(node):
 	
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		clear_selection()
 		for node in get_children():
 			if node.is_class("Line2D"):
 			#if node.is_class("Polygon2D"):
 				#node.color = Color(1, 0, 0, 0.5)
+				clear_selection()
 				node.default_color = Color(1, 0, 0, 0.5)
 				node.modulate = Color( 1, 1, 1, 1)
 				self.clicked = true
+				
 
 func _on_mouse_entered():
 	for node in get_children():
