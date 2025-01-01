@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvxyy4ohtbmmi"]
+[gd_scene load_steps=8 format=3 uid="uid://bvxyy4ohtbmmi"]
 
+[ext_resource type="Texture2D" uid="uid://cpbnp3lpeh2m7" path="res://Levels/1. Grand Campaign/Map/Map_Terrain - Small.png" id="1_xgewl"]
 [ext_resource type="Script" path="res://Levels/1. Grand Campaign/Map_Terrain.gd" id="2_jd6vp"]
 [ext_resource type="Texture2D" uid="uid://c7tmcnj0e0myc" path="res://Levels/1. Grand Campaign/Map/TileSet.png" id="3_tdeyd"]
 [ext_resource type="Script" path="res://addons/better-terrain/BetterTerrain.gd" id="4_mctfv"]
@@ -2317,6 +2318,7 @@ metadata/_better_terrain = {
 script = SubResource("GDScript_53c6e")
 
 [node name="Map_Terrain" type="Sprite2D" parent="."]
+texture = ExtResource("1_xgewl")
 centered = false
 script = ExtResource("2_jd6vp")
 
